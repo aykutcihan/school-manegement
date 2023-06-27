@@ -1,7 +1,8 @@
 package com.schoolmanegement.security.service;
 
-import com.project.schoolmanagment.entity.concretes.*;
-import com.project.schoolmanagment.repository.*;
+
+import com.schoolmanegement.entity.concretes.*;
+import com.schoolmanegement.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,6 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
 		Admin admin = adminRepository.findByUsernameEquals(username);
 		Teacher teacher = teacherRepository.findByUsernameEquals(username);
 		Dean dean = deanRepository.findByUsernameEquals(username);
@@ -71,45 +73,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 					viceDean.getUserRole().getRoleType().name());
 		}
 		throw new UsernameNotFoundException("User '" + username+ "  ' not found");
-	}
+	}}
 
-//
-//	//TODO please use inheritance and refactor this method.
-//	@Override
-//	@Transactional
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//
-//		User student = studentRepository.findByUsernameEquals(username);
-//		if (student != null) {
-//			return mapUserToUserDetailsImpl(student);
-//		}
-//		User teacher = teacherRepository.findByUsernameEquals(username);
-//		if (teacher != null) {
-//			return mapUserToUserDetailsImpl(teacher);
-//		}
-//		User admin = adminRepository.findByUsernameEquals(username);
-//		if (admin != null) {
-//			return mapUserToUserDetailsImpl(admin);
-//		}
-//		User dean = deanRepository.findByUsernameEquals(username); //200ms
-//		if (dean!=null) {
-//			return mapUserToUserDetailsImpl(dean);
-//		}
-//
-//		User viceDean = viceDeanRepository.findByUsernameEquals(username); //200ms
-//		if (viceDean!=null) {
-//			return mapUserToUserDetailsImpl(viceDean);
-//		}
-//		throw new UsernameNotFoundException("User '" + username+ "  ' not found");
-//	}
-//
-//	private UserDetailsImpl mapUserToUserDetailsImpl(User user){
-//		return new UserDetailsImpl(
-//				user.getId(),
-//				user.getUsername(),
-//				user.getName(),
-//				false,
-//				user.getPassword(),
-//				user.getUserRole().getRoleType().name());
-//	}
-}
+

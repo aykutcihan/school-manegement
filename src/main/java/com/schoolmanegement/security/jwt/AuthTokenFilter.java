@@ -1,6 +1,6 @@
 package com.schoolmanegement.security.jwt;
 
-import com.project.schoolmanagment.security.service.UserDetailsServiceImpl;
+import com.schoolmanegement.security.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

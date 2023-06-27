@@ -1,8 +1,8 @@
 package com.schoolmanegement.security.config;
 
-import com.project.schoolmanagment.security.jwt.AuthEntryPointJwt;
-import com.project.schoolmanagment.security.jwt.AuthTokenFilter;
-import com.project.schoolmanagment.security.service.UserDetailsServiceImpl;
+import com.schoolmanegement.security.jwt.AuthEntryPointJwt;
+import com.schoolmanegement.security.jwt.AuthTokenFilter;
+import com.schoolmanegement.security.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
