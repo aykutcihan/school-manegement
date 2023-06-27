@@ -1,5 +1,6 @@
 package com.schoolmanegement.payload.response;
 
+import com.schoolmanegement.payload.response.abstracts.BaseUserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

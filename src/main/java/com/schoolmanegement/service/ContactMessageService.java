@@ -51,19 +51,18 @@ public class ContactMessageService {
     }
 
     public Page<ContactMessageResponse> getAll(int page, int size, String sort, String type) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sort).ascending());
-        if (Objects.equals(type, "desc")) {
-            pageable = PageRequest.of(page, size, Sort.by(sort).descending());
-        }
+        Pageable pageable = serviceHelpers.getPageableWithProperties(page,size,sort,type);
 
-        return contactMessageRepository.findAll(pageable).map(contactMessageDto::mapContactMessageToContactMessageResponse);
+        return contactMessageRepository.findAll(pageable)
+                .map(contactMessageDto::mapContactMessageToContactMessageResponse);
     }
 
     public Page<ContactMessageResponse> searchByEmail(String email,int page, int size, String sort, String type) {
 
         Pageable pageable = serviceHelpers.getPageableWithProperties(page,size,sort,type);
 
-        return contactMessageRepository.findByEmailEquals(email, pageable).map(contactMessageDto::mapContactMessageToContactMessageResponse);
+        return contactMessageRepository.findByEmailEquals(email, pageable)
+                .map(contactMessageDto::mapContactMessageToContactMessageResponse);
 
 
     }
