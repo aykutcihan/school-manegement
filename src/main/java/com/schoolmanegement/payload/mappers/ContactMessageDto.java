@@ -19,8 +19,6 @@ public class ContactMessageDto {
                 .build();
     }
 
-
-
     public ContactMessage mapContactMessageRequestToContactMessage (ContactMessageRequest contactMessageRequest){
 
         return ContactMessage.builder()

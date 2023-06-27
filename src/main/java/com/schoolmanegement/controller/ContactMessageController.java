@@ -1,7 +1,5 @@
 package com.schoolmanegement.controller;
 
-
-import com.schoolmanegement.entity.concretes.ContactMessage;
 import com.schoolmanegement.payload.request.ContactMessageRequest;
 import com.schoolmanegement.payload.response.ContactMessageResponse;
 import com.schoolmanegement.payload.response.ResponseMessage;
@@ -19,8 +17,6 @@ import javax.validation.Valid;
 public class ContactMessageController {
 
     private final ContactMessageService contactMessageService;
-
-    // save; update; get; delete
 
     @PostMapping("save")
     @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER')")
